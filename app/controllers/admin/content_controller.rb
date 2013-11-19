@@ -16,7 +16,8 @@ class Admin::ContentController < Admin::BaseController
 #############################
 
   def merge_articles
-    render :nothing => true
+    #render :nothing => true
+    redirect_to admin/edit/1
   end
 
 
