@@ -492,7 +492,17 @@ describe Admin::ContentController do
         #get :index
         #response.should contain(/body/)
         response.status.should be(200)
-        response.should contain(/You can associate the following resources/)
+        response.should contain(/Merge Articles/)
+        response.should contain(/Article ID:/)
+      end
+
+      it 'should call the merge_articles method' do
+        #pending
+        #Admin::ContentController.should_receive(:merge_articles) #.with('1').and_return(@fake_results)
+        post :merge_articles #admin/content/merge_articles #, 'id' => @article.id
+        response.status.should be(200)        
+        #post :admin:content, 'action' => 'merge_articles'
+        #click_button 'merge_with'
       end
     end
 
