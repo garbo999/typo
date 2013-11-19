@@ -481,6 +481,26 @@ describe Admin::ContentController do
     it_should_behave_like 'destroy action'
     it_should_behave_like 'autosave action'
 
+
+
+
+
+    describe 'my test action' do
+      it 'should open the page under test' do
+        #pending
+        get :edit, 'id' => @article.id
+        #get :index
+        #response.should contain(/body/)
+        response.status.should be(200)
+        response.should contain(/You can associate the following resources/)
+      end
+    end
+
+
+
+
+
+
     describe 'edit action' do
 
       it 'should edit article' do
