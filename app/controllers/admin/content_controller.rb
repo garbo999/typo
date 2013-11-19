@@ -11,15 +11,18 @@ class Admin::ContentController < Admin::BaseController
     render :inline => "<%= raw auto_complete_result @items, 'name' %>"
   end
 
-
+#############################
+#New Work
+#############################
 
   def merge_articles
     render :nothing => true
   end
 
 
-
-
+#############################
+#END New Work
+#############################
 
 
   def index
@@ -191,6 +194,16 @@ class Admin::ContentController < Admin::BaseController
     @images = Resource.images_by_created_at.page(params[:page]).per(10)
     @resources = Resource.without_images_by_filename
     @macros = TextFilter.macro_filters
+
+#############################
+#New Work
+#############################
+
+    @user_is_admin = User.find(session[:user_id]).profile_id == 1
+
+#############################
+#END New Work
+#############################
     render 'new'
   end
 
