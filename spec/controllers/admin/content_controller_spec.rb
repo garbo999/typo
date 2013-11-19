@@ -482,7 +482,9 @@ describe Admin::ContentController do
     it_should_behave_like 'autosave action'
 
 
-
+########################
+# NEW WORK
+########################
 
 
     describe 'my test action' do
@@ -504,9 +506,29 @@ describe Admin::ContentController do
         #post :admin:content, 'action' => 'merge_articles'
         #click_button 'merge_with'
       end
+
+      it 'should call the merge_articles method version 2' do
+        #pending
+        Admin::ContentController.any_instance.should_receive(:merge_articles) #.with('1').and_return(@fake_results)
+        post :merge_articles #admin/content/merge_articles #, 'id' => @article.id
+        #response.status.should be(200)        
+        #post :admin:content, 'action' => 'merge_articles'
+        #click_button 'merge_with'
+      end
+      
+      #if 'merge_with value should be passed into params' do
+      #  pending
+      #  params[:merge_with].should == 2
+      #  post :merge_articles, params[:merge_with]=2
+      #end
+
+
     end
 
 
+########################
+# END NEW WORK
+########################
 
 
 
