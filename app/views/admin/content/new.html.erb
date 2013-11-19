@@ -2,7 +2,6 @@
 
 <%= render "admin/shared/edit", { :form_type => "article", :form_action => { :action => "new", :id => @article.id , :class => ('autosave')} } %>
 
-
-<% if user_isadmin %>
+<% if @user_is_admin %>
 <%= render :partial => "merge_form" %>
 <% end %>
