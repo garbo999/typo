@@ -482,17 +482,23 @@ describe Admin::ContentController do
     it_should_behave_like 'autosave action'
 
 
+
 ########################
 # NEW WORK
 ########################
 
 
     describe 'my test action' do
+
+      before :each do
+        Article.stub(:merge_articles)
+        #merge_articles.stub
+      end      
+      
       it 'should open the page under test' do
         #pending
+        #session[:user_id] = 1 # this was my TEMPORARY FIX
         get :edit, 'id' => @article.id
-        #get :index
-        #response.should contain(/body/)
         response.status.should be(200)
         response.should contain(/Merge Articles/)
         response.should contain(/Article ID:/)
@@ -502,7 +508,8 @@ describe Admin::ContentController do
         #pending
         #Admin::ContentController.should_receive(:merge_articles) #.with('1').and_return(@fake_results)
         post :merge_articles #admin/content/merge_articles #, 'id' => @article.id
-        response.status.should be(200)        
+        #response.status.should be(200)        
+        response.status.should be(302)        
         #post :admin:content, 'action' => 'merge_articles'
         #click_button 'merge_with'
       end
@@ -516,6 +523,15 @@ describe Admin::ContentController do
         #click_button 'merge_with'
       end
       
+      it 'should call the Article.merge_articles method' do
+        #pending
+        Article.should_receive(:merge_articles) #.with('1').and_return(@fake_results)
+        post :merge_articles #admin/content/merge_articles #, 'id' => @article.id
+        #response.status.should be(200)        
+        #post :admin:content, 'action' => 'merge_articles'
+        #click_button 'merge_with'
+      end
+
       #if 'merge_with value should be passed into params' do
       #  pending
       #  params[:merge_with].should == 2
@@ -529,6 +545,7 @@ describe Admin::ContentController do
 ########################
 # END NEW WORK
 ########################
+
 
 
 

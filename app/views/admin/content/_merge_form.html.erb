@@ -13,11 +13,20 @@
 <% end %>
 
   <div class=''>
+<<<<<<< HEAD
   <h4><%= _("Merge Articles") %></h4>
   <form action="/admin/content/merge_articles" method="post">
   <input type="hidden" id="merge_article" name="merge_article" value="1">
   Article ID: <input type="text" id="merge_with" name="merge_with"><br>
   <input type="submit" value="Merge">
   </form>
+=======
+    <h4><%= _("Merge Articles") %></h4>
+    <form action="/admin/content/merge_articles" method="post">
+      <input type="hidden" id="original_article" name="original_article" value="<%= params[:id] %>">
+      Article ID: <input type="text" id="merge_with" name="merge_with"><br>
+      <input type="submit" value="Merge">
+    </form>
+>>>>>>> 5461d99e114d24032667217185dd02b5a1ae7f42
   </div>
 
