@@ -17,13 +17,15 @@ class Admin::ContentController < Admin::BaseController
 
   def merge_articles
     #params[:id]=params[:merge_article]
-    #render 'new'
+
     #render :nothing => true
+    Article.merge_articles(params[:original_article], params[:merge_with])
     redirect_to :action => 'index'
+    #render 'new'
     #redirect_to admin/edit/1
     # incoming parameters are params[:merge_with], params[:original_article]
     # call our Articles model method to merge the two articles
-    Article.merge_articles(params[:original_article], params[:merge_with])
+
   end
 
 
