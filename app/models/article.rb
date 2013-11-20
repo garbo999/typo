@@ -76,12 +76,15 @@ class Article < Content
 #########################
 
   def self.merge_articles(original_article_id, merge_article_id)
+
+    
     a1 = Article.find(original_article_id)
     a1.body += Article.find(merge_article_id).body
     a1.save
 
     #delete the merge_article
-    
+    a2 = Article.find(merge_article_id)
+    a2.destroy
 
   end
 
