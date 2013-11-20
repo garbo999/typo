@@ -17,7 +17,6 @@ class Admin::ContentController < Admin::BaseController
 
   def merge_articles
     #params[:id]=params[:merge_article]
-
     #render :nothing => true
     Article.merge_articles(params[:original_article], params[:merge_with])
     redirect_to :action => 'index'
