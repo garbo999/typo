@@ -17,8 +17,7 @@ class Admin::ContentController < Admin::BaseController
 
   def merge_articles
     #render :nothing => true
-    redirect_to :action => 'index'
-    #redirect_to admin/edit/1
+    redirect_to admin/edit/1
   end
 
 
@@ -201,8 +200,7 @@ class Admin::ContentController < Admin::BaseController
 #New Work
 #############################
 
-    #@user_is_admin = User.find(session[:user_id]).profile_id == 1
-    @user_is_admin = User.find(current_user).profile_id == 1
+    @user_is_admin = User.find(session[:user_id]).profile_id == 1
 
 #############################
 #END New Work
