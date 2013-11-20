@@ -16,8 +16,8 @@ class Admin::ContentController < Admin::BaseController
 #############################
 
   def merge_articles
-    #render :nothing => true
-    redirect_to admin/edit/1
+    params[:id]=params[:merge_article]
+    render 'new'
   end
 
 
