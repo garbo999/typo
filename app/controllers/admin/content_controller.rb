@@ -19,6 +19,10 @@ class Admin::ContentController < Admin::BaseController
     #render :nothing => true
     redirect_to :action => 'index'
     #redirect_to admin/edit/1
+    # incoming parameters are params[:merge_with], params[:original_article]
+    # call our Articles model method to merge the two articles
+    Article.merge_articles(params[:original_article], params[:merge_with])
+
   end
 
 
