@@ -19,7 +19,10 @@ class Admin::ContentController < Admin::BaseController
     #params[:id]=params[:merge_article]
     #render :nothing => true
     Article.merge_articles(params[:original_article], params[:merge_with])
-    redirect_to previews, :id=>params[:original_article]
+    #redirect_to request.host 
+    #print "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", request.host, request.host_with_port
+    redirect_to "http://" + request.host_with_port + "/admin/content/edit/" + params[:original_article]
+    #redirect_to previews, :id=>params[:original_article]
     #render 'new'
     #params[:id]=params[:original_article]
     #params[:article] = {:draft => false}
