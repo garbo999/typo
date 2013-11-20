@@ -71,6 +71,36 @@ class Article < Content
     end
   end
 
+#########################
+# NEW WORK
+#########################
+
+  def self.merge_articles(original_article_id, merge_article_id)
+    a1 = Article.find(original_article_id)
+    a1.body += Article.find(merge_article_id).body
+    a1.save
+
+    #delete the merge_article
+    
+
+  end
+
+
+
+
+
+
+
+
+
+
+#########################
+# END NEW WORK
+#########################
+
+
+
+
   def set_permalink
     return if self.state == 'draft'
     self.permalink = self.title.to_permalink if self.permalink.nil? or self.permalink.empty?
