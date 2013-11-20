@@ -19,9 +19,13 @@ class Admin::ContentController < Admin::BaseController
     #params[:id]=params[:merge_article]
     #render :nothing => true
     Article.merge_articles(params[:original_article], params[:merge_with])
-    redirect_to :action => 'index'
+    redirect_to "http://radiant-depths-3282.herokuapp.com//admin/content/edit/" + params[:original_article]
+    #redirect_to :action => 'index'
     #render 'new'
-    #redirect_to admin/edit/1
+    #params[:id]=params[:original_article]
+    #params[:article] = {:draft => false}
+    #new_or_edit and return
+#redirect_to admin_content_url, :action => 'edit', :id => 4 #_url :id => params[:original_article]
     # incoming parameters are params[:merge_with], params[:original_article]
     # call our Articles model method to merge the two articles
 

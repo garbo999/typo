@@ -80,6 +80,9 @@ class Article < Content
     a1.body += Article.find(merge_article_id).body
     a1.save
 
+    #delete the merge_article
+    
+
   end
 
 
