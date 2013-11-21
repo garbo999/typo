@@ -85,6 +85,7 @@ class Article < Content
     # found this in chat: comment.create 
     # attempt to deal with comments
     #Comment.all.each {|c| c.article_id == merge_article_id}
+
     #comments_to_move = Comment.all.select {|c| c.article_id == merge_article_id}
     #comments_to_move.each {|c| c_new = c.clone ; c_new.article_id = original_article_id ; c_new.save }
 

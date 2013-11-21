@@ -3,26 +3,35 @@ Feature: Merge two articles
   In order to merge separate content
   I want to combine two articles
 
-Background: movies in database
+Background: Articles in database
 
-  Given the following users exist:
-  | login  | password | email             | profile_id |
-  | User1  | password | user1@email.com   | 1          |
-  | User2  | password | user2@email.com   | 1          |
+  #Given the following users exist:
+  #| login  | password | email             | profile_id |
+  #| admin  | password | user1@email.com   | 1          |
+  #| User2  | password | user2@email.com   | 1          |
 
   Given the following articles exist:
-  | title     | body | author  | user_id  |
-  | Article1  | PG   | Author1 | 1        |
-  | Article2  | PG   | Author2 | 2        |
+  | title     | body    | author  | user_id  |
+  | Article1  | Body1   | Author1 | 1        |
+  | Article2  | Body1   | Author2 | 2        |
 
-  Given the following comments exist:
-  | title     | body | author  | user_id  | article_id  |
-  | Article1  | PG   | Author1 | 1        | 1           |
-  | Article2  | PG   | Author2 | 2        | 2           |
+  #Given the following comments exist:
+  #| title     | body | author  | user_id  | article_id  |
+  #| Article1  | PG   | Author1 | 1        | 1           |
+  #| Article2  | PG   | Author2 | 2        | 2           |
+
+Scenario: Admin should see button to merge articles
+  Given the blog is set up
+  And I am logged into the admin panel
+  And I am on the Edit page
+  Then I should see "Merge Articles"
+
+Scenario: Use debugger
+  Then use debugger
 
 Scenario: Non-admin should not be able to merge articles
   Given I am on the Edit page
-  And I am not logged in as Admin
+  And I am logged in as Blog Publisher
   Then I should not see "Merge Articles"
 
 Scenario: When articles are merged, the merged article should contain the text of both previous articles
