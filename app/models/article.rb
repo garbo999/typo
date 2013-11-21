@@ -82,11 +82,19 @@ class Article < Content
     a1.body += Article.find(merge_article_id).body
     a1.save
 
+    # found this in chat: comment.create 
+    # attempt to deal with comments
+    #Comment.all.each {|c| c.article_id == merge_article_id}
+    #comments_to_move = Comment.all.select {|c| c.article_id == merge_article_id}
+    #comments_to_move.each {|c| c_new = c.clone ; c_new.article_id = original_article_id ; c_new.save }
+
+    # Elliot's version
+    merge_article_comments = Comment.where("article_id = ?", merge_article_id)
+    merge_article_comments.each{|x| x.article_id=original_article_id; x.save}    
+
     #delete the merge_article
     a2 = Article.find(merge_article_id)
     a2.destroy
-
-    # found this in chat: comment.create 
 
   end
 
