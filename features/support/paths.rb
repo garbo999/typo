@@ -19,7 +19,11 @@ module NavigationHelpers
       '/admin/content/new'
     when /^the Edit page$/
       #our_article_id = Article.find_by_user_id(1).article_id
-      '/admin/content/edit/1'
+      '/admin/content/edit/3'
+
+    #when /^the Edit page for article number "([^"]*)"$/ |article_id|
+      #our_article_id = Article.find_by_user_id(1).article_id
+      #'/admin/content/edit/' + article_id
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
