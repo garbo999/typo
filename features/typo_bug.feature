@@ -22,12 +22,24 @@ Background: Users, articles and comments in database
 
 # Comment.column_names => ["id", "type", "title", "author", "body", "excerpt", "created_at", "updated_at", "user_id", "guid", "text_filter_id", "whiteboard", "article_id", "email", "url", "ip", "blog_name", "published", "published_at", "state", "status_confirmed"]
 
-Scenario: Use debugger
-  Then use debugger
+#Scenario: Use debugger
+#  Then use debugger
 
 Scenario: Admin should see page to create/edit categories
   When I am logged into the admin panel as "admin"
   And I follow "Categories"
+  And I follow "General"
   Then I should see "Your category slug. Leave empty if you don't know what to put here"
+  And the form field "category_name" should be prefilled with "General"
+  #Then use debugger
 
-
+Scenario: Admin should be able to create new category
+  When I am logged into the admin panel as "admin"
+  And I follow "Categories"
+  Then I should see "Your category slug. Leave empty if you don't know what to put here"
+  #And the form field "category_name" should be prefilled with "nil"
+  And I fill in "category_name" with "test cat 1"
+  And I fill in "category_keywords" with "key1, key2"
+  And I press "Save"
+  Then I should see "test cat 1"
+  And I should see "key1, key2"

@@ -31,7 +31,13 @@ class Admin::CategoriesController < Admin::BaseController
 ###
 
     #@category = Category.find(params[:id])
-    @category = Category.find(1)
+    #@category = Category.find(1)
+    if params[:id]
+      @category = Category.find(params[:id])
+    else
+      @category = Category.new
+    end
+
 ###
 ### NEW WORK
 ###

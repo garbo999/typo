@@ -1,0 +1,13 @@
+# spec/fixtures/movies.yml
+# [#<Category id: 1, name: "my cat 1", position: 1, permalink: "my-cat-1", keywords: "key1, key2q", description: "this is the first test cat", parent_id: nil>] 
+
+funky_category:
+  id: 1
+  name: "my cat 1"
+  position: 1
+  permalink: "my-cat-1"
+  keywords: "key1, key2q"
+  description: "this is the first test cat"
+  parent_id: nil
+
+

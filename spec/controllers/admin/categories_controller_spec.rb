@@ -63,4 +63,26 @@ describe Admin::CategoriesController do
     assert_raise(ActiveRecord::RecordNotFound) { Category.find(test_id) }
   end
   
+  
+### NEW WORK ###
+  describe "new or edit functionality" do
+
+    before(:each) do
+      #category_id = Factory
+      # funky_category
+      fixtures :funky_category
+      cat1 = categories(:funky_category)
+    end
+
+    it "should return information category 1 if params[:id] == 1" do
+      #params[:id] = 1
+      Admin::CategoriesController.should_receive(:new).with('1')
+      get :new, :id => '1'
+      response.should be_success
+    end
+
+  end
+### NEW WORK ###
+
+
 end

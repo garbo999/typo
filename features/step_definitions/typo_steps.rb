@@ -63,4 +63,7 @@ Then /^"(.*?)" should appear before "(.*?)"$/ do |arg1, arg2|
   page.body.should =~ /#{arg1}.*#{arg2}/m
 end
 
+Then /^the form field "(.*?)" should be prefilled with "(.*?)"$/ do |arg1, arg2|
+  find_field(arg1).value.should eq arg2
+end
 
