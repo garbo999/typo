@@ -43,3 +43,14 @@ Scenario: Admin should be able to create new category
   And I press "Save"
   Then I should see "test cat 1"
   And I should see "key1, key2"
+
+Scenario: Admin should be able to edit existing category
+  When I am logged into the admin panel as "admin"
+  And I follow "Categories"
+  And I follow "General"
+  And I fill in "category_name" with "test cat 1"
+  And I fill in "category_keywords" with "key1, key2"
+  And I press "Save"
+  Then I should see "test cat 1"
+  And I should see "key1, key2"
+
